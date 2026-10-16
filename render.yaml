@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: effective-config-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_ENV
+        value: development
+      - key: APP_PORT
+        value: "8072"
+      - key: APP_WORKERS
+        value: "16"
